@@ -1,0 +1,40 @@
+@page
+@model Presentation.Pages_TicketTypes.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TicketType</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TicketType.TicketTypeId" />
+            <div class="form-group">
+                <label asp-for="TicketType.TicketTypeName" class="control-label"></label>
+                <input asp-for="TicketType.TicketTypeName" class="form-control" />
+                <span asp-validation-for="TicketType.TicketTypeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TicketType.BasePrice" class="control-label"></label>
+                <input asp-for="TicketType.BasePrice" class="form-control" />
+                <span asp-validation-for="TicketType.BasePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

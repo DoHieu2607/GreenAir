@@ -1,0 +1,42 @@
+@page
+@model Presentation.Pages_Planes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Plane[0].SeatNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plane[0].Maker)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Plane) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeatNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Maker.MakerId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PlaneId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PlaneId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PlaneId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
