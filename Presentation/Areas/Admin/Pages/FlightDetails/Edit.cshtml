@@ -1,0 +1,46 @@
+@page
+@model Presentation.Pages_FlightDetails.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>FlightDetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="FlightDetail.FlightDetailId" />
+            <input type="hidden" asp-for="FlightDetail.FlightId" />
+            <div class="form-group">
+                <label asp-for="FlightDetail.RouteId" class="control-label"></label>
+                <select asp-for="FlightDetail.RouteId" class="form-control" asp-items="ViewBag.RouteId"></select>
+                <span asp-validation-for="FlightDetail.RouteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightDetail.DepDate" class="control-label"></label>
+                <input asp-for="FlightDetail.DepDate" class="form-control" />
+                <span asp-validation-for="FlightDetail.DepDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightDetail.ArrDate" class="control-label"></label>
+                <input asp-for="FlightDetail.ArrDate" class="form-control" />
+                <span asp-validation-for="FlightDetail.ArrDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

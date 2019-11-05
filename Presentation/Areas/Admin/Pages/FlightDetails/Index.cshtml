@@ -1,0 +1,54 @@
+@page
+@model Presentation.Pages_FlightDetails.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightDetail[0].Flight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightDetail[0].Route)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightDetail[0].DepDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightDetail[0].ArrDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.FlightDetail) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Flight.FlightId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Route.RouteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

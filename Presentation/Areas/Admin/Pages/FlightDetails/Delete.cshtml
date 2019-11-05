@@ -1,0 +1,47 @@
+@page
+@model Presentation.Pages_FlightDetails.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>FlightDetail</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FlightDetail.Flight)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FlightDetail.Flight.FlightId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FlightDetail.Route)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FlightDetail.Route.RouteId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FlightDetail.DepDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FlightDetail.DepDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FlightDetail.ArrDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FlightDetail.ArrDate)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="FlightDetail.FlightDetailId" />
+        <input type="hidden" asp-for="FlightDetail.FlightId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
