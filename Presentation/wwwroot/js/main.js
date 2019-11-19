@@ -316,14 +316,16 @@
     fixedContentPos: false
   });
 
-
-  $('.checkin_date, .checkout_date').datepicker({
-	  'format': 'm/d/yyyy',
-	  'autoclose': true
+	$('.checkin_date').datepicker({
+		'format': 'dd/mm/yyyy',
+		'todayHighlight': 'true',
+		'startDate' : '0d',
+		'autoclose': true
 	});
-
-
-
+	$('.checkout_date').datepicker({
+		'format': 'dd/mm/yyyy',
+		'autoclose': true
+	});
+	$('.checkin_date').datepicker('setDate',new Date());
 
 })(jQuery);
-
