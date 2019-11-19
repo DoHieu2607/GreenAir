@@ -1,4 +1,3 @@
-
 @page
 @model IndexModel
 @{
@@ -31,7 +30,7 @@
 					<div class="tab-content p-4 px-5" id="v-pills-tabContent">
 
 					<div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
-						<form action="#" class="search-destination">
+						<form method="post" asp-page="Flight" class="search-destination">
 							<div class="row">
 								<div class="col-md align-items-end">
 									<div class="form-group">
@@ -39,9 +38,9 @@
 										<div class="form-field">
 											<div class="select-wrap">
 												<div class="icon"><span class="ion-ios-arrow-down"></span></div>
-												<select class='form-control'>
-													<option value="round">Round trip</option>
-													<option value="one">One way</option>
+												<select id="flightType" class='form-control'>
+													<option  value="round" selected>Round trip</option>
+													<option  value="one">One way</option>
 												</select>
 											</div>
 										</div>
@@ -50,9 +49,9 @@
 								<div class="col-md align-items-end">
 									<div class="form-group">
 										<label for="#">From</label>
-										<div class="form-field" style="cursor:pointer">
+										<div class="form-field" >
 											<div class="icon"><span class="icon-my_location"></span></div>
-											<input type="text" class="form-control"  placeholder="From" disabled>
+											<input type="text" id="tags" class="form-control" placeholder="From" >
 										</div>
 									</div>
 								</div>
@@ -61,7 +60,7 @@
 										<label for="#">Where</label>
 										<div class="form-field">
 											<div class="icon"><span class="icon-map-marker"></span></div>
-											<input type="text" class="form-control" placeholder="Where">
+											<input type="text" id="tags" class="form-control" placeholder="Where">
 										</div>
 									</div>
 								</div>
@@ -74,12 +73,12 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-md align-items-end">
+								<div id="checkOutContainer" class="col-md align-items-end">
 									<div class="form-group">
 										<label for="#">Check Out</label>
 										<div class="form-field">
 											<div class="icon"><span class="icon-map-marker"></span></div>
-											<input type="text" class="form-control checkout_date" placeholder="From">
+											<input  type="text" class="form-control checkout_date" placeholder="Check Out">
 										</div>
 									</div>
 								</div>
@@ -88,14 +87,17 @@
 										<label for="#">Adults</label>
 										<div class="form-field">
 											<div class="select-wrap">
-												<div class="icon"><span class="ion-ios-arrow-down"></span></div>
-												<select name="" id="" class="form-control">
+												<a style="cursor:pointer" class="icon-up plus" id="plus-adult"><span class="ion-ios-arrow-up"></span></a>
+												<input type="text" id="adult" class="form-control" value="1" />
+												<a style="cursor:pointer" class="icon-down min" id="min-adult"><span class="ion-ios-arrow-down"></span></a>
+												
+												<!-- <select name="" id="" class="form-control">
 													<option value="">1</option>
 													<option value="">2</option>
 													<option value="">3</option>
 													<option value="">4</option>
 													<option value="">5</option>
-												</select>
+												</select> -->
 											</div>
 										</div>
 									</div>
@@ -105,14 +107,16 @@
 										<label for="#">Childrens</label>
 										<div class="form-field">
 											<div class="select-wrap">
-												<div class="icon"><span class="ion-ios-arrow-down"></span></div>
-												<select name="" id="" class="form-control">
+												<a style="cursor:pointer" class="icon-up plus" id="plus-child"><span class="ion-ios-arrow-up"></span></a>
+												<input type="text" id="child" class="form-control" value="0" />
+												<a style="cursor:pointer" class="icon-down min" id="min-child"><span class="ion-ios-arrow-down"></span></a>
+												<!-- <select name="" id="" class="form-control">
 													<option value="">1</option>
 													<option value="">2</option>
 													<option value="">3</option>
 													<option value="">4</option>
 													<option value="">5</option>
-												</select>
+												</select> -->
 											</div>
 										</div>
 									</div>
@@ -125,6 +129,7 @@
 									</div>
 								</div>
 							</div>
+							<div style="font-size:13px">Caution: The number of visitors should be less or equal than 10</div>
 						</form>
 					</div>
 
@@ -338,4 +343,3 @@
 
 			
 		
-

@@ -5,14 +5,59 @@
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row no-gutters slider-text js-fullheight align-items-center " data-scrollax-parent="true">
-			<div style="width:100%;padding-left: 100px">
-				<h1 class="mb-5">Chuyến đi bắt đầu tại đây</h1>		
+			<div style="width:100%;padding-left: 250px">
+				<h1 class="mb-5">Flight start here</h1>		
             </div>
 		</div>
 	</div>
 </div>
-<div style="margin-top:40px">
-        <p>Lưu ý: Hệ thống không thể giữ chỗ vì sát ngày bay.</p>
-        <br>
-        <p>Vui lòng liên hệ: 0379 688 696</p>
-</div>
+<section class="ftco-section bg-light">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12" style="text-align:center;padding-left: .9375rem;padding-right: .9375rem;">
+				<h2 style="font-weight:600">Ha Noi to Ho Chi Minh city</h2>
+				<a style="font-weight:600" asp-page="/Index">
+					Change flight search
+					<span class="ion-ios-color-wand"></span>
+				</a>
+			</div>
+			<div class="col-sm-8">
+				<div class="">
+					<div class="section-heading">
+						<h3 class="section-heading__title" style="font-weight:600">
+							Flight go
+						</h3>
+						<span class="section-heading__icon ion-ios-plane"></span>
+						<div class="section-heading__content">
+							<span class="section-heading__route">
+								Ha Noi to Ho Chi Minh city
+							</span>
+							<span class="section-heading__content-connector">
+								-
+							</span>
+							<span class="section-heading__date">
+								Thursday,5 December,2019
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<label for="day-go">Check in</label>
+				<input type="text" data-date-format="DD-dd/mm/yyyy" id="check-in">
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+	$(document).ready(function()
+	{ 
+		$("#check-in").datepicker({
+			'todayHighlight': 'true',
+			'startDate' : '0d',
+	  		'autoclose': true
+		});
+	});
+</script>
